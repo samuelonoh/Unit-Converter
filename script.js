@@ -32,15 +32,19 @@ userInput = inputEl.value
 
     // Mass
      massEl.innerHTML = `${userInput} kilo = ${(userInput * 2.204).toFixed(3)} pounds | ${userInput} pounds = ${ (userInput / 2.204).toFixed(3)} kilos` 
-    } else {
+    }else {
         err.innerHTML = "Input a number"
-        setTimeout(()=> {
+        cases()
+    }
+    
+})
+
+function cases() {
+    setTimeout(()=> {
             (err.innerHTML = "")
         }, 2000)
         
         lengthEl.innerHTML = "---"
         volumeEl.innerHTML = "---"
         massEl.innerHTML = "---"
-    }
-    
-})
+}
