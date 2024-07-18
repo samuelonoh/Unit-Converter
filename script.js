@@ -19,14 +19,28 @@ let massEl = document.getElementById("mass")
 
 
 btn.addEventListener("click", function() {
-    console.log(inputEl.value)
-    
+userInput = inputEl.value
+
+    if (!isNaN(userInput)) {
+            console.log(userInput)
+
     // Length
-    lengthEl.innerHTML = `${inputEl.value} meters = ${(inputEl.value * 3.281).toFixed(2)} feet | ${inputEl.value} feet = ${ (inputEl.value / 3.281).toFixed(3)} meters`
+    lengthEl.innerHTML = `${userInput} meters = ${(userInput * 3.281).toFixed(2)} feet | ${userInput} feet = ${ (userInput / 3.281).toFixed(3)} meters`
 
     // Volume
-    volumeEl.innerHTML = `${inputEl.value} litres = ${(inputEl.value * 0.264).toFixed(3)} gallons | ${inputEl.value} gallons = ${ (inputEl.value / 0.264).toFixed(3)} meters` 
+    volumeEl.innerHTML = `${userInput} litres = ${(userInput * 0.264).toFixed(3)} gallons | ${userInput} gallons = ${ (userInput / 0.264).toFixed(3)} meters` 
 
     // Mass
-     massEl.innerHTML = `${inputEl.value} kilo = ${(inputEl.value * 2.204).toFixed(3)} pounds | ${inputEl.value} pounds = ${ (inputEl.value / 2.204).toFixed(3)} kilos` 
+     massEl.innerHTML = `${userInput} kilo = ${(userInput * 2.204).toFixed(3)} pounds | ${userInput} pounds = ${ (userInput / 2.204).toFixed(3)} kilos` 
+    } else {
+        err.innerHTML = "Input a number"
+        setTimeout(()=> {
+            (err.innerHTML = "")
+        }, 2000)
+        
+        lengthEl.innerHTML = "---"
+        volumeEl.innerHTML = "---"
+        massEl.innerHTML = "---"
+    }
+    
 })
